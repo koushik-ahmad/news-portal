@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News-24</title>
     <!-- css stylesheet  -->
-    <link rel="stylesheet" href="css/news-style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- daisy ui and tailwind css  -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.33.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,12 +16,12 @@
 <body>
     <header>
         <section class="container mx-auto">
-            <div class="navbar pt-0">
+            <div class="navbar text-xl">
                 <div class="flex-1">
                     <h2 class="text-indigo-600"><span class="bg-indigo-600 text-white rounded">News</span>-24</h2>
                 </div>
                 <div class="flex-none">
-                    <ul class="menu-horizontal p-0 gap-4">
+                    <ul class="menu-horizontal gap-4">
                         <li><a>Home</a></li>
                         <li><a>News</a></li>
                         <li><a>Blog</a></li>
@@ -33,13 +33,23 @@
                     </div>
                 </label>
             </div>
-            </div>
         </section>
-
         <section class="container mx-auto">
             <hr>
         </section>
     </header>
+    <!-- news category section  -->
+    <main>
+        <section>
+            <div class="container mx-auto ">
+                <ul id="category" class="text-gray-500 w-full menu menu-horizontal gap-4 flex justify-between p-5">
+                    <li>Home</li>
+                </ul>
+            </div>
+        </section>
+        
+
+    </main>
 
 
 
@@ -47,7 +57,7 @@
 
 
 
-    <script src="js/news-portal.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
