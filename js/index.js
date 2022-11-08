@@ -18,8 +18,11 @@ const displayCategory = users => {
     })
 }
 
+// ============home =============================
 // home container =================================
 const loadHome = async () => {
+    const spinner = document.getElementById('spinner');
+    spinner.classList.remove('hidden');
     const url = `https://openapi.programming-hero.com/api/news/category/01`
     const res = await fetch(url);
     const data = await (res.json());
@@ -27,9 +30,20 @@ const loadHome = async () => {
 }
 
 const displayHome = (users) => {
-    // console.log(users);
     const homeContainer = document.getElementById('home-container');
-    homeContainer.textContent = '';
+    const categoryContainer = document.getElementById('category');
+    // console.log(users);
+    // homeContainer.textContent = '';
+
+    // spinner ==============================
+    pinner.classList.add('hidden');
+    if (homeContainer) {
+        homeContainer.classList.add(visibility)
+    }
+    else {
+        homeContainer.classList.remove(hidden)
+    }
+
     for (const user of users) {
         // console.log(user);
         const homeDiv = document.createElement('div');
@@ -69,6 +83,7 @@ const displayHome = (users) => {
 
 loadHome();
 
+// =================== news category ==========================
 
 // news category onclick 
 const loadNewsDetails = async (category_id) => {
@@ -110,8 +125,7 @@ const displayNewsDetails = (users) => {
                         <p>Rating: ${user.rating.number ? user.rating.number : 'No rating'}</p>
                     </div>
                     <div class="flex flex-end">
-                        <button onclick="loadDetails('${user._id}')" id="news-id" for="my-modal-5" class="btn btn-primary">Read more...</button>
-                        
+                         <label onclick="loadDetails('${user._id}')" for="my-modal-5" class="btn btn-primary">Read more...</label>
                     </div>
                 </div>
             </div>
@@ -121,34 +135,40 @@ const displayNewsDetails = (users) => {
     })
 }
 
+loadNewsDetails();
 
-const loadDetails = async (details) => {
-    console.log(details);
-    const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`;
+
+//=============== modal =======================
+
+const loadDetails =async (details) => {
+    // console.log(details);
+    const url = `https://openapi.programming-hero.com/api/news/${details}`;
     const res = await fetch(url);
     const data = await res.json();
-    displayDetails(data.data[0]);
+    displayNews(data.data[0]);
 }
 
-const displayDetails = (users) => {
-    console.log(users);
-    const newsId = document.getElementById('news-id');
-
-    const containerDiv = document.createElement('containerDiv');
-    containerDiv.innerHTML = `
-        <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-        <div class="modal">
-        <div class="modal-box w-11/12 max-w-5xl">
-            <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
-            <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-            <div class="modal-action">
-            <label for="my-modal-5" class="btn">Yay!</label>
-            </div>
+const displayNews = (users) => {
+    // console.log(users);
+    const modalContainer = document.getElementById('modal-body');
+    modalContainer.innerHTML = '';
+    const modalDiv = document.createElement('div');
+    modalDiv.innerHTML = `
+    <div class="card">
+        <img src="${users.image_url}" class="w-2/3"/>
+        <div class="card-body">
+        <h2 class="card-title">${users.title}</h2>
+        <div>
+            <p><small> Author Name : ${users.author.name ? users.author.name : 'No Author'}</small></p>
+            <p><small> Published Date : ${users.author.published_date ? users.author.published_date : 'No Date here'}</small></p>
         </div>
+        <p>${users.details}</p>
         </div>
-        `;
-    newsId.appendChild(containerDiv);
-
+    </div>
+    `;
+    modalContainer.appendChild(modalDiv);
 }
+
+loadDetails();
 
 loadCategory();

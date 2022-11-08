@@ -39,55 +39,81 @@
         </section>
     </header>
     <main>
-        <section class="container mx-auto w-2/3 pt-20 pb-32 grid gap-5">
+        <section class="container mx-auto w-2/4 pt-20 pb-32 mb-20 grid gap-5">
             <div class="collapse">
                 <input type="checkbox" class="peer" />
                 <div
                     class="collapse-title bg-accent text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    Qustion-1
+                    Qustion-01: What is difference between var, let and const in JavaScript?
                 </div>
                 <div class="collapse-content  peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    <p>hello</p>
+                    <p>Answer: There are three keywords in JavaScript that can be used to declare variables: let, var,
+                        and const. The let keyword declares a block-scoped local variable, optionally initializing it to
+                        a value. Block-scoped
+                        means that the variable is only available within the block it was declared in, which is usually
+                        denoted by curly braces. The var keyword declares a function-scoped or global variable,
+                        optionally
+                        initializing it to a value. Function-scoped means that the variable is only available within the
+                        function it was declared
+                        in. Global variables are available throughout your entire code. The const keyword declares a
+                        block-scoped, immutable
+                        constant variable, a variable that can’t be reassigned.</p>
                 </div>
             </div>
             <div class="collapse">
                 <input type="checkbox" class="peer" />
                 <div
                     class="collapse-title bg-accent text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    Qustion-2
+                    Qustion-02: What are the differences between arrow functions & regular functions?
                 </div>
                 <div class="collapse-content  peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    <p>hello</p>
+                    <p>Answer: In regular function, this value is dynamic, In arrow function it equals to this of the
+                        outer function. In regular function, arguments will give you list of parameter passed in
+                        function, In arrow function arguments is not
+                        defined. And regular function, you always have to return any value, but in Arrow function you
+                        can skip return keyword and write in
+                        single line. In arrow function parameters should be unique. Hoisting matters in arrow function
+                        as function get not be invoked before initializations.</p>
                 </div>
             </div>
             <div class="collapse">
                 <input type="checkbox" class="peer" />
                 <div
                     class="collapse-title bg-accent text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    Qustion-2
+                    Qustion-03: What is the difference between map, forEach, filter & find?
                 </div>
                 <div class="collapse-content  peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    <p>hello</p>
+                    <p>Answer: for Each (), is used to execute the same code on every element in an array but does not
+                        change the array and it returns
+                        undefined. map () executes the same code on every element in an array and returns a new array
+                        with the updated elements.
+                        filter () returns an array containing the element that satisfies the condition, but find ()
+                        returns the element itself
+                        that satisfies the condition. In filter (), whole array is iterated despite the fact that the
+                        element being searched for
+                        is present at the beginning.</p>
                 </div>
             </div>
             <div class="collapse">
                 <input type="checkbox" class="peer" />
                 <div
                     class="collapse-title bg-accent text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    Qustion-4
+                    Qustion-04: Why do we write template string?
                 </div>
                 <div class="collapse-content  peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    <p>hello</p>
+                    <p>Answer: In ES6, we can now use template strings. I like to use these multiline strings when I'm
+                        creating HTML markup as a
+                        string. You can use backticks here, and use the object properties as variables. These look
+                        familiar because they're in
+                        the same format as I've been using in some of the previous posts.</p>
                 </div>
             </div>
         </section>
     </main>
 
-
-
     <footer>
-        <section>
-            <p class="text-center pb-8 pt-3">Copyright 2022 <span
+        <section class="bg-gray-100">
+            <p class="text-center p-8 mt-8">Copyright 2022 <span
                     class="bg-indigo-600 text-white rounded">News</span><span class="text-indigo-600">-24</span></p>
         </section>
     </footer>

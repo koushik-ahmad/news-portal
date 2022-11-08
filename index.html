@@ -39,45 +39,75 @@
             <hr>
         </section>
     </header>
+
     <!-- news category section  -->
     <main>
         <section>
             <div class="container mx-auto ">
                 <ul id="category"
                     class="category-news text-gray-500 w-full menu menu-horizontal gap-4 flex justify-between p-5">
-                    <li onclick="displayNewsDetails(users)" id="" class="">Home</li>
+                    <li onclick="displayNewsDetails()" id="home-container" class="">Home</li>
                 </ul>
             </div>
         </section>
-        <!-- Home container  -->
+
+        <!-- spinner  -->
         <section>
+            <progress id="spinner" class="progress progress-success w-full hidden"></progress>
+        </section>
+
+        <!-- not found  -->
+        <section>
+            <div id="no-found" class="hidden">
+                <h2 class="text-center text-orange-500 text-2xl">No Found, Please try again!</h2>
+            </div>
+        </section>
+
+        <!-- news found  -->
+        <section>
+            <div id="found-news">
+                <h2 class="pl-20 text-orange-400 text-xl">4 News Found </h2>
+            </div>
+        </section>
+
+        <!-- Home container  -->
+        <!-- <section class="container mx-auto">
             <div id="home-container">
 
             </div>
-        </section>
+        </section> -->
+
         <!-- news show category  -->
         <section class="container mx-auto">
             <div id="category-news" class="m-5">
 
             </div>
         </section>
+
         <!-- news modal section  -->
         <section>
-            <div class="containerDiv">
+            <!-- Put this part before body tag -->
+            <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+            <div class="modal">
+                <div class="modal-box relative w-11/12 max-w-5xl">
+                    <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <div id="modal-body">
 
+                    </div>
+                </div>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <section>
-            <p class="text-center pb-8 pt-3">Copyright 2022 <span
+        <section class="bg-gray-100">
+            <p class="text-center p-8 mt-8">Copyright 2022 <span
                     class="bg-indigo-600 text-white rounded">News</span><span class="text-indigo-600">-24</span></p>
         </section>
     </footer>
 
     <script src="js/index.js"></script>
+    <script src="js/home.js"></script>
 </body>
 
 </html>
