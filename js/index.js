@@ -12,7 +12,7 @@ const displayCategory = users => {
         const newsDiv = document.createElement('ul');
         newsDiv.classList.add('li');
         newsDiv.innerHTML = `
-            <li onclick="loadNewsDetails('${user.category_id}')">${user.category_name}</li>
+            <li class="btn bg-violet-400 p-4" onclick="loadNewsDetails('${user.category_id}')">${user.category_name}</li>
         `;
         newsCategory.appendChild(newsDiv);
     })
@@ -27,16 +27,44 @@ const loadNewsDetails = async (category_id) => {
     const res = await fetch(url);
     const data = await (res.json());
     displayNewsDetails(data.data)
+
 }
 
 const displayNewsDetails = (users) => {
+
     // console.log(users);
+   
+    // No found news 
+    const noFound = document.getElementById('no-found');
+    if (users.length === 0) {
+        noFound.classList.remove('hidden');
+    }
+    else {
+        noFound.classList.add('hidden')
+    }
     const categoryContainer = document.getElementById('category-news');
-    categoryContainer.innerHTML = '';
+    categoryContainer.textContent = '';
+
+    // spinner or loader
+    const spinner = document.getElementById('spinner');
+    const toggleSpinner = isLoading => {
+        if (isLoading) {
+            spinner.classList.remove('hidden')
+        }
+        else {
+            spinner.classList.add('hidden');
+        }
+    }
+   
+    // spinner start
+    toggleSpinner(true); 
+
     users.forEach(user => {
-        console.log(user);
+        // console.log(user);
+        
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('col');
+
         newsDiv.innerHTML = `
         <div class="card card-side bg-base-100 p-4 m-5 shadow-xl">
             <img class="h-auto w-1/3" src="${user.image_url}"/>
@@ -67,6 +95,8 @@ const displayNewsDetails = (users) => {
         </div>
         `;
         categoryContainer.appendChild(newsDiv);
+        // stop spinner or loader 
+        toggleSpinner(false);
     })
 }
 
@@ -76,7 +106,7 @@ loadNewsDetails();
 //=============== modal =======================
 //============================================
 
-const loadDetails =async (details) => {
+const loadDetails = async (details) => {
     // console.log(details);
     const url = `https://openapi.programming-hero.com/api/news/${details}`;
     const res = await fetch(url);
